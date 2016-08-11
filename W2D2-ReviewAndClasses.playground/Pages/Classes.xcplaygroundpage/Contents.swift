@@ -49,21 +49,44 @@ box1.area()
 //:
 //: Bicycles should also have two functions. `gearUp()` and `gearDown()`, which increase and decrease the value in `currentGear`.
 
-
+class Bicycle {
+    let numberOfGears: Int
+    var currentGear = 5
+    
+    init(gears: Int) {
+        self.numberOfGears = gears
+    }
+    
+    func gearUp() {
+        if currentGear < numberOfGears {
+            currentGear += 1
+        } else {
+            return
+        }
+    }
+    
+    func gearDown() {
+        if currentGear > 1 {
+            currentGear -= 1
+        } else {
+            return
+        }
+    }
+}
 
 
 
 //: Test your bicycle out by uncommenting the following code:
  
-//var myBike = Bicycle()
-//
+var myBike = Bicycle(gears: 10)
+
 //myBike.numberOfGears = 16 // upgrade!
-//myBike.gearUp()
-//myBike.gearUp()
-//myBike.gearDown()
-//myBike.gearUp()
-//
-//print("my bike is in the \(myBike.currentGear)rd gear")
+myBike.gearUp()
+myBike.gearUp()
+myBike.gearDown()
+myBike.gearUp()
+
+print("my bike is in the \(myBike.currentGear)rd gear")
 
 
 //: ## Challenge 2
@@ -109,13 +132,6 @@ brightBulb.watts
 
 
 
-
-
-
-
-
-
-
 //: ## Bonus Challenge
 
 //: Subclassing allows us to make a new class that has all the same properties and functions as its "parent" class.
@@ -127,6 +143,20 @@ brightBulb.watts
 //:
 //: Hint: height * width * depth = the area of a cube
 
+
+class Cube: Box {
+    var depth: Double
+    
+    init(depth: Double){
+        self.depth = depth
+    }
+    
+    override func area() -> Double {
+        let vol = super.area() * depth
+        return vol
+    }
+
+}
 
 
 

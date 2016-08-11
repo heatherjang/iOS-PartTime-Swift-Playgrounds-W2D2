@@ -35,23 +35,31 @@ func travel(name: String, distance: Double) {
 //:
 //: Try to call this function with your name and a distance
 //: Hint: Start typing the name of the travel function, and autocomplete should suggest a completion!
-
+travel("Heather", distance: 2224.9)
 
 
 
 
 //: ### Challenge 2
 //: Now, take the code your wrote in the last playground to print out a grammatical description of how fast we're moving, and write a function that takes in a Double and uses that as the kph. Call the function `describeSpeed`.
-
+func describeSpeed(kph: Double) {
+    if kph < 1 {
+        print("We are standing still")
+    } else if kph <= 30 {
+        print("We are moving \(kph)km/h")
+    } else {
+        print("Whoa! Slow down, buddy. \(kph) hm/h is too fast for this school zone.")
+    }
+}
 
 
 
 
 // Test it by uncommenting these lines:
 
-// describeSpeed(10)
-// describeSpeed(0)
-// describeSpeed(100)
+ describeSpeed(10)
+ describeSpeed(0)
+ describeSpeed(100)
 
 
 //: ### Challenge 3
@@ -69,15 +77,25 @@ var result = complement("Cory")
 
 
 //: Using that as an example, re-write the `describeSpeed` function so it returns a String. Call this new function `speedDescription`.
-
+func speedDescription(kph: Double) -> String {
+    var statement = ""
+    if kph < 1 {
+       statement = "We are standing still"
+    } else if kph <= 30 {
+        statement = "We are moving \(kph)km/h"
+    } else {
+        statement = "Whoa! Slow down, buddy. \(kph) hm/h is too fast for this school zone."
+    }
+    return statement
+}
 
 
 
 // Test it by uncommenting the lines below:
 
-//var sd1 = speedDescription(10)
-//var sd2 = speedDescription(0)
-//var sd3 = speedDescription(45)
+var sd1 = speedDescription(10)
+var sd2 = speedDescription(0)
+var sd3 = speedDescription(45)
 
 
 //: [Next](@next)
